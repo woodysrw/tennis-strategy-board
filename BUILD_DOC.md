@@ -35,7 +35,7 @@ type Sequence = { v: 1; mode: 'singles' | 'doubles'; frames: Frame[] }
 - **Input:** Pointer Events, so mouse and touch share one code path.
 - **Sharing:** the sequence goes in the URL hash: `#v1:<lz-string compressed JSON>`. No backend, no database. The hash never reaches the server.
 - **Draft autosave:** current sequence in `localStorage` (wrapped in try/catch), so a page refresh mid-lesson loses nothing.
-- **Hosting:** any static host (Vercel or GitHub Pages).
+- **Hosting:** GitHub Pages, deployed by GitHub Actions on every push to `main`. Live at https://woodysrw.github.io/tennis-strategy-board/
 - **Font:** a free pixel font (e.g. Press Start 2P from Google Fonts).
 
 ## Phases

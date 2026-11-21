@@ -8,6 +8,8 @@ Vite + TypeScript, no framework. Canvas for the court, plain DOM for the tool pa
 ## Commands
 - `npm run dev`: dev server on http://localhost:5173
 - `npm run build`: typecheck + static build to `dist/`
+- Deploy: push to `main`. GitHub Actions (`.github/workflows/pages.yml`) builds and publishes to https://woodysrw.github.io/tennis-strategy-board/
+- The repo is public. Commits use the GitHub noreply email (set in this repo's git config).
 
 ## Layout
 - `src/model.ts`: data model, mode switching, cascade, validation
