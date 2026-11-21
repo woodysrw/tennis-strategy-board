@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0e26" />
+    <title>Court Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <main class="stage">
+        <div class="canvas-box" id="canvasBox">
+          <canvas id="court" role="img" aria-label="Tennis court with players and ball"></canvas>
+          <div class="hud hud-tl" id="hudFrame">Frame 1/1</div>
+          <div class="hud hud-tr" id="hudStatus">Edit</div>
+          <div class="hud hud-msg" id="hudMsg" hidden>Tap to continue</div>
+          <div class="hud ink-bar" id="inkBar" role="group" aria-label="Pen color" hidden></div>
+        </div>
+        <div class="strip" id="strip" aria-label="Frames"></div>
+      </main>
+
+      <aside class="panel" id="panel" aria-label="Tools">
+        <div class="hud title">
+          <strong>Court board</strong>
+          <span>Tennis strategy</span>
+        </div>
+
+        <!-- Edit mode -->
+        <div class="row edit-only">
+          <button class="btn primary" data-act="play" title="Loop this frame (Space)"></button>
+          <button class="btn" data-act="playAll" title="Play every frame in order (Enter)"></button>
+        </div>
+        <div class="row edit-only" role="group" aria-label="Players">
+          <button class="btn" data-act="singles" data-icon="singles" title="One player a side"><span>Singles</span></button>
+          <button class="btn" data-act="doubles" data-icon="doubles" title="Two players a side"><span>Doubles</span></button>
+        </div>
+        <div class="row three edit-only">
+          <button class="btn" data-act="undo" data-icon="undo" title="Undo (Ctrl/Cmd Z)"><span>Undo</span></button>
+          <button class="btn" data-act="clear" data-icon="clear" title="Clear arrows in this frame"><span>Clear</span></button>
+          <button class="btn" data-act="delete" data-icon="delete" title="Delete this frame"><span>Delete</span></button>
+        </div>
+        <div class="row three edit-only">
+          <button class="btn" data-act="pen" data-icon="pen" title="Draw on the board (P)" aria-pressed="false"><span>Pen</span></button>
+          <button class="btn" data-act="share" data-icon="share" title="Copy a link that plays this sequence"><span>Share</span></button>
+          <button class="btn" data-act="new" data-icon="new" title="Start a new board (undo brings it back)"><span>New</span></button>
+        </div>
+        <p class="help edit-only">Drag a player to move it. Drag its dot to show where it goes. Press + for the next frame.</p>
+        <dl class="help keys edit-only">
+          <dt>Space</dt><dd>Loop frame</dd>
+          <dt>Enter</dt><dd>Play all</dd>
+          <dt>N</dt><dd>Add frame</dd>
+          <dt>P</dt><dd>Pen on/off</dd>
+          <dt>Arrows</dt><dd>Pick frame</dd>
+          <dt>Ctrl Z</dt><dd>Undo</dd>
+        </dl>
+
+        <!-- Shared-link player -->
+        <div class="row view-only">
+          <button class="btn primary" data-act="viewPlay"></button>
+          <button class="btn" data-act="edit" data-icon="edit" title="Open this play in the editor"><span>Edit copy</span></button>
+        </div>
+        <div class="row view-only">
+          <button class="btn" data-act="prev" data-icon="prev" title="Previous frame"><span>Prev</span></button>
+          <button class="btn" data-act="next" data-icon="next" title="Next frame"><span>Next</span></button>
+        </div>
+        <p class="help view-only">Tap the court to play. Arrows show where everyone goes next.</p>
+      </aside>
+    </div>
+    <div class="toast" id="toast" role="status" hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
