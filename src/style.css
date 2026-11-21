@@ -264,6 +264,22 @@ body.view .edit-only, body:not(.view) .view-only { display: none; }
 
 @media (prefers-reduced-motion: reduce) { .hud-msg { animation: none; } }
 
+/* Tablet portrait: the 1:2 court is height-bound, so slim the panel to one
+   column of icon buttons and let the court use the full screen height. */
+@media (min-width: 760px) and (orientation: portrait) {
+  .panel { width: 104px; gap: 8px; }
+  .panel .title, .panel .help { display: none; }
+  .row, .row.three { display: contents; }
+  .btn, .row.three .btn {
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    min-height: 56px;
+    font-size: 8px;
+    text-align: center;
+  }
+}
+
 /* Phone: court on top, strip, then a compact button grid. */
 @media (max-width: 759px) {
   #app { flex-direction: column; align-items: center; gap: 8px; padding: 8px; }
